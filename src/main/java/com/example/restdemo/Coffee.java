@@ -1,10 +1,17 @@
 package com.example.restdemo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
 
+@Entity
 class Coffee {
-    private final String id;
+    @Id
+    private String id;
     private String name;
+
+    public Coffee() {
+    }
 
     public Coffee(String id, String name) {
         this.id = id;
@@ -13,6 +20,10 @@ class Coffee {
 
     public Coffee(String name) {
         this(UUID.randomUUID().toString(), name);
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getId() {
